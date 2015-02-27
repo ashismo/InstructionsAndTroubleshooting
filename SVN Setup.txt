@@ -1,0 +1,25 @@
+SVN setup
+===========
+1. Install tortoise SVN and SVN for windows(TortoiseSVN-1.6.10.19898-win32-svn-1.6.12.msi)
+2. Create a repository from cmd prompt
+	a) svnadmin create "F:\ashish.mondal\mySVN\MyProjectRepo"
+3. Modifying Security and Authentication Settings
+	(a) Go to D:\Project\Repository\conf location
+		The svnserv.conf file in a configuration file for the svnserv executible. For our purposes, just uncomment out the following lines:
+		[general]
+		anon-access = read
+		auth-access = write
+		password-db = passwd
+	(b) Open passwd file and define username=password
+		e.g.
+		ashismo=root
+		root=root
+	(c)
+4. Serving Your Repos for the First Time (Start SVN server)
+	svnserve --daemon --root "F:\ashish.mondal\mySVN\MyProjectRepo"
+5. Creating your First Project folder
+	svn mkdir svn://localhost/medicalStore
+
+6. Right click on desktop-> tortoizeSVN -> repo-browser -> svn://localhost
+
+7.
