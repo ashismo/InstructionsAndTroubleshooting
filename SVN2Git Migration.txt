@@ -1,0 +1,41 @@
+Migrate SVN to Git with history
+
+Follow: http://www.troyhunt.com/2014/08/migrating-from-subversion-to-git-with.html
+
+1. Install Ruby, git and github(client)
+2. Install svn2git.gem by executing "gem install svn2git" from <path to ruby>/bin
+	If fails then download svn2git.gem into <path to ruby> then execute 
+		>cd <path to ruby>
+		>bin\gem install svn2git.gem
+		
+3. Backup your code from SVN into some location.
+4. Create a new folder then Migrate your subversion repository in to the folder
+	svn2git http://[domain name]/svn/[repository root]
+	If you get the following error
+		command failed:
+		git checkout –f master
+		
+		Then follow: https://github.com/nirvdrum/svn2git
+		Example: if you have no trunk, branch,tag in your SVN repository then
+			use 
+			$ svn2git svn://localhost/CustomizedUjanLearningAndroid --rootistrunk
+			
+5. Push your code to Git
+	a. git remote add origin https://github.com/ashismo/LearningABCD
+	b. Just as a sanity check, I’ll give it a bit of “git remote –v” to confirm it’s completed successfully:
+	c. git push –-all
+	
+	If the following error comes then use "git push --force" and once done don't forget to execute "git config --global push.default matching"
+	F:\ashish.mondal\myGithub\svnToGitLatest>git push --all
+	Username for 'https://github.com': ashismo
+	Password for 'https://ashismo@github.com':
+	To https://github.com/ashismo/LearningABCD.git
+	! [rejected]        master -> master (non-fast-forward)
+	error: failed to push some refs to 'https://github.com/ashismo/LearningABCD.git'
+
+	hint: Updates were rejected because a pushed branch tip is behind its remote
+	hint: counterpart. Check out this branch and integrate the remote changes
+	hint: (e.g. 'git pull ...') before pushing again.
+	hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
