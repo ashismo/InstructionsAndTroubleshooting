@@ -1,0 +1,8 @@
+How to create APK release version to release in Google App store
+
+    Android studio -> Search for Build Variants (usually bottom left side) -> Change App to release from build
+	-> Go to Build in the tool bar -> Generate signed APK -> Create a certificate
+	
+	New popup will come. Select Create new key store path <enter: path_t_keystore/keystore.jks> enter password and other stuffs
+	
+	Go to the app folder in your workspace and you will see app-release.apk
